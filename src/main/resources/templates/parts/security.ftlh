@@ -14,7 +14,7 @@
 <!-- Если объект НЕ определен в контексте -->
 <#else>
     <#assign
-            name = "unknown"
+            name = "Please login"
             isAdmin = false
         >
 </#if>

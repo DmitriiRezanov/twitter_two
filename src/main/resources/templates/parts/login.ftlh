@@ -11,12 +11,13 @@
          <label for="inputPassword" class="col-sm-2 mb-2 col-form-label">Password :</label>
          <div class="col-sm-6">
              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter password">
+             <button type="submit" class="btn btn-primary me-3 mt-4"><#if isRegisterForm>Login!<#else>Sign in</#if></button>
+                 <#if !isRegisterForm><a href="/registration" class="btn btn-secondary mt-4">Add new user</a></#if>
          </div>
      </div>
 
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <#if !isRegisterForm><a href="/registration">Add new user</a></#if>
-    <button type="submit" class="btn btn-primary"><#if isRegisterForm>Login!<#else>Sign in</#if></button>
+
 </form>
 </#macro>
 
