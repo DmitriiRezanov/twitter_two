@@ -8,12 +8,12 @@
                  <input type="text" name="filter" class="form-control me-2" value="${filter?ifExists}" placeholder="Search by tag">
              </div>
              <div class="col-sm-6">
-                 <button type="submit" class="btn btn-primary">Search</button>
+                 <button type="submit" class="btn btn-success">Search</button>
              </div>
       </div>
     </form>
 
-    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Add new message
     </a>
 
@@ -33,7 +33,7 @@
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div class="fmb-3">
-                <button type="submit" class="btn btn-primary">Sent</button>
+                <button type="submit" class="btn btn-success">Sent</button>
             </div>
         </form>
         </div>

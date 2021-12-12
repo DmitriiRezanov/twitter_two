@@ -16,6 +16,6 @@
 
     <input type="hidden" name="userId" value="${user.id}">
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
 </form>
 </@c.page>

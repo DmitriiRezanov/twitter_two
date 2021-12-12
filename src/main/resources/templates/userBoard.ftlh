@@ -9,7 +9,7 @@
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div class="fmb-3">
-                <button type="submit" class="btn btn-primary">Sent</button>
+                <button type="submit" class="btn btn-success">Sent</button>
             </div>
         </form>
         </div>
