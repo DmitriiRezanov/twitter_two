@@ -11,6 +11,7 @@
                  <button type="submit" class="btn btn-primary">Search</button>
              </div>
       </div>
+    </form>
 
     <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Add new message
@@ -55,7 +56,9 @@
     </div>
     </div>
         <#else>
-        No message
+        <div class="pt-10">
+            No message
+        </div>
     </#list>
     </div>
 </@c.page>
