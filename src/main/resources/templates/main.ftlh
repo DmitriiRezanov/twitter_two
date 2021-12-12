@@ -1,39 +1,61 @@
 <#import "parts/common.ftlh" as c>
-<#import "parts/login.ftlh" as l>
+
 <@c.page>
 
-    <div>
-        <@l.logout />
-        <span><a href="/user">User list</a></span>
-    </div>
-    <div>
+    <form method="get" action="main" class="frow row-cols-lg-auto g-1 align-items-center">
+      <div class="form-group row mb-4">
+             <div class="col-sm-6">
+                 <input type="text" name="filter" class="form-control me-2" value="${filter?ifExists}" placeholder="Search by tag">
+             </div>
+             <div class="col-sm-6">
+                 <button type="submit" class="btn btn-primary">Search</button>
+             </div>
+      </div>
+
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add new message
+    </a>
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
         <form method="post" enctype="multipart/form-data">
-            <input type="text" name="text" placeholder="Введите сообщение">
-            <input type="text" name="tag" placeholder="Тэг">
-            <input type="file" name="file">
+            <div class="mb-3">
+                <input type="text" name="text" class="form-control" placeholder="Enter text"/>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="tag" class="form-control" placeholder="Tag">
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <input type="file" name="file" class="form-control" id="customFile">
+                </div>
+            </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <button type="submit">Добавить</button>
+            <div class="fmb-3">
+                <button type="submit" class="btn btn-primary">Sent</button>
+            </div>
         </form>
+        </div>
     </div>
 
-    <div>Список сообщений</div>
-    <form method="get" action="main">
-        <input type="text" name="filter" value="${filter?ifExists}">
-        <button type="submit">Найти</button>
-    </form>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
     <#list messages as message>
-        <div>
-            <b>${message.id}</b>
+    <div class="col">
+    <div class="card my-3">
+        <#if message.filename??>
+            <img src="/img/${message.filename}" class="card-img-top">
+        </#if>
+        <div class="m-2">
             <span>${message.text}</span>
             <i>${message.tag}</i>
-            <strong>${message.authorName}</strong>
-            <div>
-                <#if message.filename??>
-                    <img src="/img/${message.filename}">
-                </#if>
-            </div>
         </div>
+        <div class="card-footer text-muted">
+            ${message.authorName}
+        </div>
+    </div>
+    </div>
         <#else>
         No message
     </#list>
+    </div>
 </@c.page>
