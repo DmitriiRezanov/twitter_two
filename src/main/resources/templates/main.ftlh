@@ -48,9 +48,9 @@
         </#if>
         <div class="m-2">
             <span>${message.text}</span>
-            <i>${message.tag}</i>
         </div>
         <div class="card-footer text-muted">
+            <i>${message.tag}</i>,
             ${message.authorName}
         </div>
     </div>
