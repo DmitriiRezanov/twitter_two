@@ -28,7 +28,7 @@
           <a class="nav-link active" aria-current="page" href="/userBoard/${id}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/main">Messages</a>
+          <a class="nav-link active" aria-current="page" href="/community/">Communities</a>
         </li>
         <#if isAdmin>
         <li class="nav-item">

@@ -1,8 +1,8 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-
-        <div class="card card-body">
+<h1>${messages[1].user.username} board :</h1>
+        <div class="card card-body mt-5">
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <input type="text" name="text" class="form-control" placeholder="Enter text"/>
@@ -23,7 +23,7 @@
         </div>
         <div class="card-footer">
             ${message.user.username},
-            ${message.date}
+            ${message.date?datetime}
         </div>
     </div>
     </div>

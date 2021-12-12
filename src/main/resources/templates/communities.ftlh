@@ -2,13 +2,15 @@
 
 <@c.page>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+<h1>All communities :</h1>
+    <div class="card text-center mt-5" style="width: 20rem;">
+
         <#list communities as community>
             <div class="col">
-                <h1>All communities</h1>
-                <div class="card my-3">
+
+                <div class="card text-white bg-success mb-3 py-4 px-4">
                     <#if community.name??>
-                        <a href="/community/${community.id}">${community.name}</a>
+                        <a class="link-warning" href="/community/${community.id}">${community.name}</a>
                     </#if>
                 </div>
             </div>

@@ -9,7 +9,7 @@
     <a href="/login">Login!</a>
 <#else>
     <h5>Hello, ${name} </h5>
-    <a href="/main">View messages</a>
+    <a href="/community/">View communities</a>
 </#if>
 
 
