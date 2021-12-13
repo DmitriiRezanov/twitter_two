@@ -53,6 +53,7 @@ public class CommunityController {
     @PostMapping ("{id}")
     public String add(
             @AuthenticationPrincipal User user,
+            @RequestParam Long id,
             @RequestParam String text,
             @RequestParam String tag, Map<String, Object> model, Model model2,
             @RequestParam("file") MultipartFile file) throws IOException {
@@ -73,11 +74,12 @@ public class CommunityController {
             message.setFilename(resultFilename);
         }
 
+        message.setCommunity(communityService.getById(id));
         messageRepo.save(message);
 
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages", messages);
-        model2.addAttribute("community", communityService.getById(44L));
+        model2.addAttribute("community", communityService.getById(id));
         return "community";
     }
 

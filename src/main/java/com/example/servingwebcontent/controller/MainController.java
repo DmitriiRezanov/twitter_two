@@ -23,7 +23,7 @@ import java.util.UUID;
 @Controller
 public class MainController {
     @Autowired
-    private MessageRepo messageRepo;
+//    private MessageRepo messageRepo;
 
 //    @Value("${upload.path}") //ищем в application.properties переменную upload.path и вставляем ее в переменную
 //    private String uploadPath;

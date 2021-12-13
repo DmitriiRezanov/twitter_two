@@ -22,6 +22,7 @@
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div class="fmb-3">
+                <input type="hidden" name="id" value="${community.id}" />
                 <button type="submit" class="btn btn-success">Sent</button>
             </div>
         </form>
