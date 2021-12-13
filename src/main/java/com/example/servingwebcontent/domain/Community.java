@@ -13,9 +13,6 @@ public class Community {
     @Column
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "community_id")
-    private List<Message> messages;
 
     public Long getId() {
         return id;
@@ -33,11 +30,4 @@ public class Community {
         this.name = name;
     }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
 }

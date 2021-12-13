@@ -3,6 +3,8 @@ package com.example.servingwebcontent.service;
 import com.example.servingwebcontent.domain.Community;
 import com.example.servingwebcontent.repos.CommunityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -38,4 +40,5 @@ public class CommunityServiceImpl implements CommunityService {
         community.setName(name);
         communityRepo.save(community);
     }
+
 }

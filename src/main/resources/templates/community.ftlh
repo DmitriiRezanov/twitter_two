@@ -29,7 +29,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-    <#list community.messages as message>
+    <#list messages as message>
     <div class="col">
     <div class="card my-3">
         <#if message.filename??>

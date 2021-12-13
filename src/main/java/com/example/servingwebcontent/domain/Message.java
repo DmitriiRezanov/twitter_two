@@ -16,11 +16,14 @@ public class Message {
     @JoinColumn (name = "user_id") //в БД поле будет называться user_id, а не author_id
     private User author;
 
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "community_id")
+    private Community community;
+
     private String filename;
 
-    public Message(){
+    public Message(){}
 
-    }
     public Message(String text, String tag, User user) {
         this.text = text;
         this.tag = tag;
@@ -69,5 +72,13 @@ public class Message {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 }

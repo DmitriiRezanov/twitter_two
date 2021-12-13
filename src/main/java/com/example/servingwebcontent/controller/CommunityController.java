@@ -1,5 +1,6 @@
 package com.example.servingwebcontent.controller;
 
+import com.example.servingwebcontent.domain.Community;
 import com.example.servingwebcontent.domain.Message;
 import com.example.servingwebcontent.domain.User;
 import com.example.servingwebcontent.repos.MessageRepo;
@@ -42,7 +43,9 @@ public class CommunityController {
 
     @GetMapping("{id}")
     public String getById(Model model, @PathVariable Long id) {
+        Iterable<Message> messages = messageRepo.findMessageByCommunityId(id);
         model.addAttribute("community", communityService.getById(id));
+        model.addAttribute("messages", messages);
         return "community";
     }
 
@@ -51,7 +54,7 @@ public class CommunityController {
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
-            @RequestParam String tag, Map<String, Object> model,
+            @RequestParam String tag, Map<String, Object> model, Model model2,
             @RequestParam("file") MultipartFile file) throws IOException {
         Message message = new Message(text, tag, user);
 
@@ -74,12 +77,15 @@ public class CommunityController {
 
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages", messages);
+        model2.addAttribute("community", communityService.getById(44L));
         return "community";
     }
 
     @PostMapping()
     public String create(Model model, @RequestParam String name) {
-        communityService.create(name);
+        if (!name.equals("")){
+            communityService.create(name);
+        }
         model.addAttribute("communities", communityService.getAll());
         return "communities";
     }
