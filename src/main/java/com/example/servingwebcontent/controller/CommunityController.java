@@ -77,7 +77,7 @@ public class CommunityController {
         message.setCommunity(communityService.getById(id));
         messageRepo.save(message);
 
-        Iterable<Message> messages = messageRepo.findAll();
+        Iterable<Message> messages = messageRepo.findMessageByCommunityId(id);
         model.put("messages", messages);
         model2.addAttribute("community", communityService.getById(id));
         return "community";
