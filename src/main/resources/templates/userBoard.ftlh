@@ -1,7 +1,8 @@
 <#import "parts/common.ftlh" as c>
+<#include "parts/security.ftlh">
 
 <@c.page>
-<h1>${messages[1].user.username} board :</h1>
+<h1>${name} board :</h1>
         <div class="card card-body mt-5">
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
