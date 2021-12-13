@@ -48,35 +48,35 @@ public class MainController {
         model.addAttribute("filter", filter);
         return "main";
     }
-//
-//    //Добавление сообщения
-//    @PostMapping ("/community/*")
-//    public String add(
-//            @AuthenticationPrincipal User user,
-//            @RequestParam String text,
-//            @RequestParam String tag, Map<String, Object> model,
-//            @RequestParam("file") MultipartFile file) throws IOException {
-//        Message message = new Message(text, tag, user);
-//
-//        if ( file != null && !file.getOriginalFilename().isEmpty()) {
-//            File uploadDir = new File(uploadPath);
-//
-//            if (!uploadDir.exists()){ //если дирректории не существует, то создаем ее
-//                uploadDir.mkdir();
-//            }
-//
-//            String uuidFile = UUID.randomUUID().toString();
-//            String resultFilename = uuidFile + "." + file.getOriginalFilename();//создаем уникальное имя файла
-//
-//            file.transferTo(new File(uploadPath + "/" + resultFilename)); //загружаем файл
-//
-//            message.setFilename(resultFilename);
-//        }
-//
-//        messageRepo.save(message);
-//
-//        Iterable<Message> messages = messageRepo.findAll();
-//        model.put("messages", messages);
-//        return "/community/";
-//    }
+
+    //Добавление сообщения
+    @PostMapping ("/community/*")
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String tag, Map<String, Object> model,
+            @RequestParam("file") MultipartFile file) throws IOException {
+        Message message = new Message(text, tag, user);
+
+        if ( file != null && !file.getOriginalFilename().isEmpty()) {
+            File uploadDir = new File(uploadPath);
+
+            if (!uploadDir.exists()){ //если дирректории не существует, то создаем ее
+                uploadDir.mkdir();
+            }
+
+            String uuidFile = UUID.randomUUID().toString();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();//создаем уникальное имя файла
+
+            file.transferTo(new File(uploadPath + "/" + resultFilename)); //загружаем файл
+
+            message.setFilename(resultFilename);
+        }
+
+        messageRepo.save(message);
+
+        Iterable<Message> messages = messageRepo.findAll();
+        model.put("messages", messages);
+        return "/community/";
+    }
 }

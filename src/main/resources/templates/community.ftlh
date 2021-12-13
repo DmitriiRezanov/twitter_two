@@ -1,8 +1,8 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-
-    <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+<h1>${community.name}</h1>
+    <a class="btn btn-outline-success mt-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Add a new post to the community
     </a>
 
@@ -29,7 +29,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-    <#list communities.messages as message>
+    <#list community.messages as message>
     <div class="col">
     <div class="card my-3">
         <#if message.filename??>

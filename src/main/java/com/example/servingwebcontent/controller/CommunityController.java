@@ -42,12 +42,12 @@ public class CommunityController {
 
     @GetMapping("{id}")
     public String getById(Model model, @PathVariable Long id) {
-        model.addAttribute("communities", communityService.getById(id));
+        model.addAttribute("community", communityService.getById(id));
         return "community";
     }
 
     //Добавление сообщения
-    @PostMapping
+    @PostMapping ("{id}")
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
@@ -77,10 +77,10 @@ public class CommunityController {
         return "community";
     }
 
-//    @PostMapping()
-//    public String create(Model model, @RequestParam String name) {
-//        communityService.create(name);
-//        model.addAttribute("communities", communityService.getAll());
-//        return "communities";
-//    }
+    @PostMapping()
+    public String create(Model model, @RequestParam String name) {
+        communityService.create(name);
+        model.addAttribute("communities", communityService.getAll());
+        return "communities";
+    }
 }

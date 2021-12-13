@@ -3,6 +3,19 @@
 <@c.page>
 
 <h1>All communities :</h1>
+
+        <div class="card card-body mt-1">
+        <form method="post">
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Create new community (Enter name community)"/>
+            </div>
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+            <div class="fmb-3">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </form>
+        </div>
+
     <div class="card text-center mt-5" style="width: 20rem;">
 
         <#list communities as community>
